@@ -335,7 +335,12 @@ section:nth-child(7){animation-delay:.7s}
 @media(max-width:480px){
   .couple-grid{grid-template-columns:1fr 1fr;gap:8px}
   .couple-photo{aspect-ratio:2/3}
-  .hero-photo{background-position:72% 42%}
+  .hero{min-height:500px}
+  .hero-photo{
+    /* less crop + less zoom for narrow phone screens */
+    background-position:60% 38%;
+    transform:scale(1.01);
+  }
 }
 </style>
 </head>
@@ -594,28 +599,63 @@ document.getElementById('heroPhoto').style.backgroundImage = 'url(' + heroSrc + 
   }
 })();
 
-/* ── Music ── */
+/* ── Music (soft wedding vibe) ── */
 let actx=null,playing=false,gain=null,nt=null,ni=0;
-const notes=[261.63,293.66,329.63,392,440,523.25,587.33,659.25,784];
-const pat=[0,2,4,5,4,2,1,0,3,5,4,2,6,4,3,2];
+const notes=[261.63,293.66,329.63,349.23,392,440,493.88,523.25,587.33];
+const pat=[0,2,4,2,5,4,2,0,3,5,7,5,4,2,1,0];
+function ensureAudio(){
+  if(!actx){
+    actx=new(window.AudioContext||window.webkitAudioContext)();
+    gain=actx.createGain();
+    gain.gain.value=.22;
+    gain.connect(actx.destination);
+  }
+  if(actx.state==='suspended'){actx.resume();}
+}
 function playN(){
   if(!playing||!actx)return;
-  const o=actx.createOscillator(),g=actx.createGain();
-  o.connect(g);g.connect(gain);
-  o.type='sine';
-  o.frequency.value=notes[pat[ni%pat.length]];
+  const f=notes[pat[ni%pat.length]];
+  const o1=actx.createOscillator(),o2=actx.createOscillator();
+  const g=actx.createGain();
+  o1.connect(g);o2.connect(g);g.connect(gain);
+  o1.type='triangle';o2.type='sine';
+  o1.frequency.value=f;o2.frequency.value=f*2;
   g.gain.setValueAtTime(0,actx.currentTime);
-  g.gain.linearRampToValueAtTime(.15,actx.currentTime+.1);
-  g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+1.8);
-  o.start();o.stop(actx.currentTime+2);
-  ni++;nt=setTimeout(playN,650+Math.random()*400);
+  g.gain.linearRampToValueAtTime(.12,actx.currentTime+.25);
+  g.gain.exponentialRampToValueAtTime(.001,actx.currentTime+2.6);
+  o1.start();o2.start();
+  o1.stop(actx.currentTime+2.8);o2.stop(actx.currentTime+2.8);
+  ni++;nt=setTimeout(playN,1150+Math.random()*450);
 }
-document.getElementById('mbtn').addEventListener('click',()=>{
-  if(!actx){actx=new(window.AudioContext||window.webkitAudioContext)();gain=actx.createGain();gain.gain.value=.5;gain.connect(actx.destination);}
-  playing=!playing;
+function setMusicUI(){
   document.getElementById('iPlay').style.display=playing?'none':'';
   document.getElementById('iPause').style.display=playing?'':'none';
-  if(playing)playN();else clearTimeout(nt);
+}
+function startMusic(){
+  ensureAudio();
+  if(playing)return;
+  playing=true;setMusicUI();playN();
+}
+function stopMusic(){
+  playing=false;setMusicUI();clearTimeout(nt);
+}
+document.getElementById('mbtn').addEventListener('click',()=>{playing?stopMusic():startMusic();});
+/* try autoplay; browsers may require one user interaction */
+window.addEventListener('load',()=>{setTimeout(startMusic,700);});
+document.addEventListener('pointerdown',()=>{if(!playing)startMusic();},{once:true});
+
+/* ── Slow auto-scroll ── */
+let autoScrollOn=true,autoRAF=null;
+function runAutoScroll(){
+  if(!autoScrollOn)return;
+  const maxY=document.documentElement.scrollHeight-window.innerHeight;
+  if(window.scrollY>=maxY-2){autoScrollOn=false;return;}
+  window.scrollBy(0,.35);
+  autoRAF=requestAnimationFrame(runAutoScroll);
+}
+window.addEventListener('load',()=>{setTimeout(()=>{if(autoScrollOn)runAutoScroll();},1400);});
+['wheel','touchstart','keydown'].forEach(evt=>{
+  window.addEventListener(evt,()=>{autoScrollOn=false;if(autoRAF)cancelAnimationFrame(autoRAF);},{once:true,passive:true});
 });
 
 /* ── Intersection observer for section reveals ── */
