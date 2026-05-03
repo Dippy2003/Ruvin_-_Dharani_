@@ -61,7 +61,8 @@ body::before{
   position:absolute;inset:0;
   background-color:#1a1008;
   background-size:cover;
-  background-position:center 42%;
+  /* keep the groom in-frame on narrow screens */
+  background-position:64% 42%;
   image-rendering:high-quality;
   -webkit-backface-visibility:hidden;
   backface-visibility:hidden;
@@ -334,6 +335,7 @@ section:nth-child(7){animation-delay:.7s}
 @media(max-width:480px){
   .couple-grid{grid-template-columns:1fr 1fr;gap:8px}
   .couple-photo{aspect-ratio:2/3}
+  .hero-photo{background-position:72% 42%}
 }
 </style>
 </head>
