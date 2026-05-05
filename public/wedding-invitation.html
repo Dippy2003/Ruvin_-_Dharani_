@@ -561,13 +561,56 @@ document.getElementById('coupleImg1').src = photo1Src;
 document.getElementById('coupleImg2').src = photo2Src;
 document.getElementById('heroPhoto').style.backgroundImage = 'url(' + heroSrc + ')';
 
-(function applyGuestFromQuery(){
-  var params = new URLSearchParams(window.location.search);
-  var raw = params.get('guest') || params.get('name');
-  var el = document.getElementById('guest-name');
-  if (!el || !raw) return;
-  var guest = String(raw).replace(/\+/g,' ').trim();
-  if (guest) el.textContent = guest;
+/* ── Guest name from encrypted token (AES-GCM) ── */
+const SECRET_KEY = 'A1b2C3d4E5f6G7h8J9k0L1m2N3p4Q5r6';
+
+function b64UrlToUint8Array(input){
+  const base64 = input.replace(/-/g, '+').replace(/_/g, '/');
+  const padded = base64 + '='.repeat((4 - (base64.length % 4)) % 4);
+  const bin = atob(padded);
+  const out = new Uint8Array(bin.length);
+  for(let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+  return out;
+}
+
+async function decryptGuestToken(token){
+  const parts = token.split('.');
+  if(parts.length !== 2) throw new Error('Invalid token format');
+
+  const iv = b64UrlToUint8Array(parts[0]);
+  const cipherPlusTag = b64UrlToUint8Array(parts[1]);
+  const keyBytes = new TextEncoder().encode(SECRET_KEY);
+
+  if(keyBytes.length !== 32) throw new Error('Secret key must be 32 bytes');
+
+  const cryptoKey = await crypto.subtle.importKey(
+    'raw',
+    keyBytes,
+    'AES-GCM',
+    false,
+    ['decrypt']
+  );
+
+  const plainBuffer = await crypto.subtle.decrypt(
+    { name:'AES-GCM', iv },
+    cryptoKey,
+    cipherPlusTag
+  );
+  return new TextDecoder().decode(plainBuffer).trim();
+}
+
+(async function applyGuestFromQuery(){
+  const params = new URLSearchParams(window.location.search);
+  const token = params.get('guest') || params.get('name');
+  const el = document.getElementById('guest-name');
+  if(!el || !token) return;
+
+  try{
+    const guest = await decryptGuestToken(token);
+    if(guest) el.textContent = guest;
+  }catch(_err){
+    el.textContent = 'Dear Guest';
+  }
 })();
 
 /* ── Petals ── */
