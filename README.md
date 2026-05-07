@@ -81,6 +81,24 @@ To refresh this table after new commits:
 git log --oneline -10
 ```
 
+## Invite Links (Latest Batch)
+
+- `Mr. Chatura Perera` — `https://ruvindharani.live/?guest=Vfh0CkFKgXNkYVVw.xJ6SR4k4lmSY-I4a516-NYovaq_DD5i0-M1o6ZkpLygutg`
+- `Harsha Ramanayake` — `https://ruvindharani.live/?guest=oq1DMPz0YK2CXkPq.I-wTQOZzYlAXxBrpzvqrvfpEOGCvLRCgFSe7UrwXwgrf`
+- `Duleema Hettige` — `https://ruvindharani.live/?guest=9Y9zJmx9TRt0JfIo.2zx-xTiCrR9cjs6GQM80F4CLXwWn5dReFv1JwgthYA`
+- `Ridmi Manarandi` — `https://ruvindharani.live/?guest=GjzKjU3g4KThUbC6.Mhs9VD-GzYpiStWSPGYPbxRJhBOiQMRKsmX9X7Q5Rw`
+- `Dinuka Gayan` — `https://ruvindharani.live/?guest=qcMZ99VP6jsULsa6.rwS3kaLGu2zZMTM1AK5D1KTBP5TZl6RN99gHxA`
+- `Chamika Roshan` — `https://ruvindharani.live/?guest=1PKY4eqfklOUKhI-.GHKRyC7cPFOtzJptc5Ol1P5eEqHGn7eCgIRFc-f5`
+- `Kalindu Lakshan` — `https://ruvindharani.live/?guest=Kf5x4ALddwwvDWDz.ABEdMdUWz07rnm5B9_eFla0lrq9XIltBWa20ZCn32w`
+- `Dinoshkaran` — `https://ruvindharani.live/?guest=6hCeV2m7ezu4tRRk.p3CKAjSH2HTwNUZTB0CvEN-_36aKI5nqwa2b`
+- `Gayan Hatharasinghe` — `https://ruvindharani.live/?guest=3eCtdjl-J7ihwH5n.PQ6sjKMfVpZo2buv4IvB74HIqy1l-isWIXPa5tJ-qH53LI4`
+- `Hasini Kanchana` — `https://ruvindharani.live/?guest=M4HcHcrsTP8a2ylO.hUTAg5o6yLFMtdCWIT5J2VdUWPsLBFrDBcUTBlbJKQ`
+- `Thihara Kumarasinghe` — `https://ruvindharani.live/?guest=y4jK0eFDkE819EGF.5KfPgrFqP98IDAiIheGIuDuJDElDLz-qBO8OlvjxhNhSqtQz`
+- `Kaushalya Senarathne` — `https://ruvindharani.live/?guest=qZOdDBzfa6_IxYiu.-pYIW0PgR6MxrqXgqWdblccAoiDvzsboZrm9ZRvwJ7Cg01QF`
+- `Tharuka Ruwan` — `https://ruvindharani.live/?guest=XwFYWEwTfPQCRPAf.ZNsdgj-y1kqoOYBHl5wCzEy0Wdi7RtgJiEj9ciA`
+- `Chamodi Vimodya` — `https://ruvindharani.live/?guest=lNFjWQPiPG5N3KOa.Bn9iGemFgIaSOWdSoAhQoXo-cOrSjDiS6PDdD4EYKw`
+- `Hasindu Chandeepa` — `https://ruvindharani.live/?guest=zA1VINvgbSgkemzp.DUte-16PFW0_QIop_HroAbyoOV1PqFRADlXgLYw-iBDT`
+
 ## License
 
 Private project (`"private": true` in `package.json`). Adjust if you publish the repo.
