@@ -99,6 +99,7 @@ git log --oneline -10
 - `Chamodi Vimodya` — `https://ruvindharani.live/?guest=lNFjWQPiPG5N3KOa.Bn9iGemFgIaSOWdSoAhQoXo-cOrSjDiS6PDdD4EYKw`
 - `Hasindu Chandeepa` — `https://ruvindharani.live/?guest=zA1VINvgbSgkemzp.DUte-16PFW0_QIop_HroAbyoOV1PqFRADlXgLYw-iBDT`
 - `Upulini Akki & Daham Aiya` — `https://ruvindharani.live/?guest=wU84cBojxS03fY-v._NiLjK5UScp0goOFSH-ItJwIRox8YAGHka33xx7usJf0u7GYKxEoqJc`
+- `Loku Akki` — `https://ruvindharani.live/?guest=KLDAlts9xnUN9Yxp.GfxKF3Z3xm8EEdAxc2YpMA7nSKTxtB159g`
 
 ## License
 
