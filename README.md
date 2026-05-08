@@ -101,6 +101,7 @@ git log --oneline -10
 - `Upulini Akki & Daham Aiya` — `https://ruvindharani.live/?guest=wU84cBojxS03fY-v._NiLjK5UScp0goOFSH-ItJwIRox8YAGHka33xx7usJf0u7GYKxEoqJc`
 - `Loku Akki` — `https://ruvindharani.live/?guest=KLDAlts9xnUN9Yxp.GfxKF3Z3xm8EEdAxc2YpMA7nSKTxtB159g`
 - `Raveen` — `https://ruvindharani.live/?guest=Am8kogcPzx-IV-iZ.BJlOl-rfW1MTTmhDjgUfmdDmSkyRvA`
+- `Chandupa Lokuliyana` — `https://ruvindharani.live/?guest=C7YJkU3Mshail-Tf.WkGI--fgSx2EcBeyQ_EgyGHdBC_3YLcT-TEOK0opQg27064`
 
 ## License
 
