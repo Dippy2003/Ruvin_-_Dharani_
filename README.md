@@ -98,6 +98,7 @@ git log --oneline -10
 - `Tharuka Ruwan` — `https://ruvindharani.live/?guest=XwFYWEwTfPQCRPAf.ZNsdgj-y1kqoOYBHl5wCzEy0Wdi7RtgJiEj9ciA`
 - `Chamodi Vimodya` — `https://ruvindharani.live/?guest=lNFjWQPiPG5N3KOa.Bn9iGemFgIaSOWdSoAhQoXo-cOrSjDiS6PDdD4EYKw`
 - `Hasindu Chandeepa` — `https://ruvindharani.live/?guest=zA1VINvgbSgkemzp.DUte-16PFW0_QIop_HroAbyoOV1PqFRADlXgLYw-iBDT`
+- `Upulini Akki & Daham Aiya` — `https://ruvindharani.live/?guest=wU84cBojxS03fY-v._NiLjK5UScp0goOFSH-ItJwIRox8YAGHka33xx7usJf0u7GYKxEoqJc`
 
 ## License
 
