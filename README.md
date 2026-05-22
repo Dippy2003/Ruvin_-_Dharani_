@@ -64,7 +64,7 @@ Newest first. Rows 1–8 match `git log` on this branch; rows 9–10 summarize t
 
 | # | Hash | Message |
 |---|------|---------|
-| 1 | `HEAD` | docs: rewrite README with setup guide and 10-commit history |
+| 1 | `HEAD` | docs: add Vercel deployment and family invite links |
 | 2 | `2ddad3d` | add crop |
 | 3 | `f7ad7d9` | new |
 | 4 | `41a9de8` | Merge origin/main; keep updated invitation HTML |
@@ -81,7 +81,33 @@ To refresh this table after new commits:
 git log --oneline -10
 ```
 
-## Invite Links (Latest Batch)
+## Live site
+
+Production deployment: [https://ruvin-dharani-gixh.vercel.app/](https://ruvin-dharani-gixh.vercel.app/)
+
+## Personalized invite links
+
+Guest names are encrypted in the `?guest=` query parameter (AES-GCM). Generate new links with:
+
+```bash
+python scripts/generate_invite_links.py \
+  --base-url "https://ruvin-dharani-gixh.vercel.app/" \
+  --secret "A1b2C3d4E5f6G7h8J9k0L1m2N3p4Q5r6" \
+  --name "Guest Name Here"
+```
+
+For a list of names (one per line), use `--input guests.txt`. The secret must match `SECRET_KEY` in `public/wedding-invitation.html`.
+
+### Family & friends (Vercel)
+
+- `Mr & Mrs Aththanayaka` — `https://ruvin-dharani-gixh.vercel.app/?guest=8SfHiVj5lfDFAj63.FwSBfn_JtY4PaOgEYS3pWNtAJJW_qU66qBGL-9pDUEEkUxdWtQ`
+- `Mr & Mrs Kapila` — `https://ruvin-dharani-gixh.vercel.app/?guest=qI8QQNIzyPGH6U4O.If5h9SUnu-kyIXmWPds5PqNKYCf9VZqSygpRKLDEmA`
+- `Mrs Chamari` — `https://ruvin-dharani-gixh.vercel.app/?guest=JIXh4pIq7afW2LEM.JILQ80OjKULy1QEoHyERYMuTLxBsGkuz3Sh2`
+- `Mrs Renuka (Chuti)` — `https://ruvin-dharani-gixh.vercel.app/?guest=CfIxDVRXYzQc9vUd.ATe3poiZbz9gPnSGuMWX3FIjHqgCTPA10SouMXntx86geA`
+- `Mr Kavishka Weerasuriya` — `https://ruvin-dharani-gixh.vercel.app/?guest=06-viGfyfGgqtAJv.OK-qjcnSLatCwNM6Dr9MJaetM3Apb-mDG0lsGXf5SzhXnvvUdj9u`
+- `Mr & Mrs Manoj` — `https://ruvin-dharani-gixh.vercel.app/?guest=kN43ZHZ_Ig6uy8TG.rLbTalkxmQF9P-4lASS6exJARwUg5evz4iULsZG7`
+
+### Earlier batch (ruvindharani.live)
 
 - `Mr. Chatura Perera` — `https://ruvindharani.live/?guest=Vfh0CkFKgXNkYVVw.xJ6SR4k4lmSY-I4a516-NYovaq_DD5i0-M1o6ZkpLygutg`
 - `Harsha Ramanayake` — `https://ruvindharani.live/?guest=oq1DMPz0YK2CXkPq.I-wTQOZzYlAXxBrpzvqrvfpEOGCvLRCgFSe7UrwXwgrf`
